@@ -6,7 +6,7 @@ const uiConfig = {
         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     ],
     callbacks: {
-        signInSuccess: () => false
+        signInSuccess: () => false,
     }
 };
 

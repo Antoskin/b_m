@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Menu, Modal as Mod} from 'antd';
+import { Modal as Mod } from 'antd';
 import {ModalContext} from './ModalWrapper';
 import uiConfig from '../../utils/uiConfig';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
@@ -10,6 +10,7 @@ function Modal(props) {
 
     const {visible} = props;
     const modal = useContext(ModalContext);
+//    const isLogged = useContext(LogContext);
 
     const handleCancel = () => modal.show();
 
