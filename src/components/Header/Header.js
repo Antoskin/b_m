@@ -11,14 +11,11 @@ import {ModalContext} from '../Modal/ModalWrapper';
 const { Header: HeadLayout } = Layout;
 
 function Header() {
-    const data = useContext(LogContext);
+    const isLogged = useContext(LogContext);
     const modal = useContext(ModalContext);
 
-    const modalHandler = () => {
-        console.log('open')
-        modal.show()
-    };
-
+    const modalHandler = () => modal.show();
+    const handlerLogOut = () => firebase.auth().signOut();
 
     return (
         <HeadLayout>
@@ -29,15 +26,16 @@ function Header() {
                 defaultSelectedKeys={['2']}
                 style={{ lineHeight: '64px' }}
             >
-                {/*<If condition={!data}>*/}
-                {/*    <StyledFirebaseAuth*/}
-                {/*        uiConfig={uiConfig}*/}
-                {/*        firebaseAuth={firebase.auth()}*/}
-                {/*    />*/}
-                {/*</If>*/}
-                <Menu.Item key="0" onClick={modalHandler}>Log-in</Menu.Item>
                 <Menu.Item key="1"><Link to="/"><b>Main</b></Link></Menu.Item>
                 <Menu.Item key="2"><Link to="/about"><b>About</b></Link></Menu.Item>
+                <Menu.Item key="3">
+                    <If condition={!isLogged}>
+                        <span onClick={modalHandler}>Join</span>
+                    </If>
+                    <If condition={isLogged}>
+                        <span onClick={handlerLogOut}>Log-out</span>
+                    </If>
+                </Menu.Item>
             </Menu>
         </HeadLayout>
     )

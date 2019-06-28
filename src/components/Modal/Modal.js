@@ -1,6 +1,9 @@
 import React, {useContext} from 'react';
-import { Modal as Mod } from 'antd';
+import {Menu, Modal as Mod} from 'antd';
 import {ModalContext} from './ModalWrapper';
+import uiConfig from '../../utils/uiConfig';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+import firebase from 'firebase';
 
 
 function Modal(props) {
@@ -10,18 +13,20 @@ function Modal(props) {
 
     const handleCancel = () => modal.show();
 
-    console.log('in modal visible', visible);
+    //console.log('in modal visible', visible);
 
     return (
         <div>
             <Mod
-                title="Basic Modal"
+                title="Join-us"
                 visible={visible}
+                onOk={handleCancel}
                 onCancel={handleCancel}
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <StyledFirebaseAuth
+                    uiConfig={uiConfig}
+                    firebaseAuth={firebase.auth()}
+                />
             </Mod>
         </div>
     );
