@@ -14,17 +14,17 @@ class RootApp extends Component {
     render() {
         return (
             <AuthentiController>
-                <ModalWrapper>
-                    <Layout className="layout">
-                        <Router>
-                            <Header />
+                <Layout className="layout">
+                    <Router>
+                        <ModalWrapper>
+                            <Header/>
                             <Switch>
-                                <Route exact path="/" component={MainPage} />
-                                <Route path="/about" component={About} />
+                                <Route exact path="/" component={MainPage}/>
+                                <Route path="/about" component={About}/>
                             </Switch>
-                        </Router>
-                    </Layout>
-                </ModalWrapper>
+                        </ModalWrapper>
+                    </Router>
+                </Layout>
             </AuthentiController>
         );
     }
