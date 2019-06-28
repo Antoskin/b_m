@@ -7,6 +7,11 @@ const uiConfig = {
     ],
     callbacks: {
         signInSuccess: () => false,
+        signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+            console.log('signInSuccessWithAuthResult', authResult, redirectUrl);
+            //this.props.history.push('/');
+            return false
+        }
     }
 };
 

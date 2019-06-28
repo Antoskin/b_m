@@ -1,20 +1,29 @@
 import React, {useContext} from 'react';
 import { Modal as Mod } from 'antd';
 import {ModalContext} from './ModalWrapper';
-import uiConfig from '../../utils/uiConfig';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from 'firebase';
 
 
 function Modal(props) {
-
     const {visible} = props;
     const modal = useContext(ModalContext);
-//    const isLogged = useContext(LogContext);
 
     const handleCancel = () => modal.show();
 
-    //console.log('in modal visible', visible);
+    const uiConfig = {
+        signInFlow: "popup",
+        signInOptions: [
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        ],
+        callbacks: {
+            signInSuccess: () => false,
+            signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+                handleCancel();
+                return false
+            }
+        }
+    };
 
     return (
         <div>
