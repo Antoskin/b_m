@@ -1,3 +1,4 @@
-import Person from './Person';
+import NewPerson from './NewPerson';
+import RenderPerson from './RenderPerson';
 
-export default Person;
+export { NewPerson, RenderPerson };

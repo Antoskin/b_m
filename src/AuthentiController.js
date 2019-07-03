@@ -26,7 +26,7 @@ class AuthentiController extends React.Component {
     componentWillMount() {
         firebase.auth().onAuthStateChanged(user => {
             this.setState({ isSignedIn: !!user });
-            console.log("user", user);
+            //console.log("user", user);
         })
     }
 

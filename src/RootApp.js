@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './components/About';
 import MainPage from './components/MainPage';
 import ModalWrapper from './components/Modal/ModalWrapper';
-import Person from './components/Person';
+import {NewPerson} from './components/Person';
 
 import { Layout } from 'antd';
 
@@ -22,7 +22,7 @@ class RootApp extends Component {
                             <Switch>
                                 <Route exact path="/" component={MainPage}/>
                                 <Route path="/about" component={About}/>
-                                <Route path="/add" component={Person}/>
+                                <Route path="/add" component={NewPerson}/>
                             </Switch>
                         </ModalWrapper>
                     </Router>
