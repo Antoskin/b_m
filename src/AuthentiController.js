@@ -1,14 +1,14 @@
 import React from 'react';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import uiConfig from './utils/uiConfig';
+import firebase from './config/config';
 
 export const LogContext = React.createContext(null);
 
-firebase.initializeApp({
-    apiKey: "AIzaSyApg9iNQ_kW-iN3W_4nA03c25tQvn8KRsk",
-    authDomain: "bmoney-e1afd.firebaseapp.com"
-});
+// firebase.initializeApp({
+//     apiKey: "AIzaSyApg9iNQ_kW-iN3W_4nA03c25tQvn8KRsk",
+//     authDomain: "bmoney-e1afd.firebaseapp.com"
+// });
 
 class AuthentiController extends React.Component {
     state = { isSignedIn: false };

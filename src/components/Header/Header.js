@@ -5,7 +5,6 @@ import { Layout, Menu } from "antd";
 import {If} from 'react-control-statements';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import firebase from 'firebase';
-import uiConfig from '../../utils/uiConfig';
 import {ModalContext} from '../Modal/ModalWrapper';
 
 const { Header: HeadLayout } = Layout;
@@ -30,6 +29,7 @@ function Header() {
             >
                 <Menu.Item key="1"><Link to="/"><b>Main</b></Link></Menu.Item>
                 <Menu.Item key="2"><Link to="/about"><b>About</b></Link></Menu.Item>
+                <Menu.Item key="4"><Link to="/add"><b>add Person</b></Link></Menu.Item>
                 <Menu.Item key="3">
                     <If condition={!isLogged}>
                         <span onClick={modalHandler}>Join</span>

@@ -2,7 +2,6 @@ import React, {useContext} from 'react';
 import { Modal as Mod } from 'antd';
 import {withRouter} from 'react-router-dom'
 import {ModalContext} from './ModalWrapper';
-import uiConfig from '../../utils/uiConfig';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from 'firebase';
 
