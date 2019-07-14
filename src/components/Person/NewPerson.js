@@ -23,7 +23,7 @@ function NewPerson() {
         db.collection('peoples').add({
             name,
             wiki,
-            ava
+            ava,
         });
 
         console.log('add')
