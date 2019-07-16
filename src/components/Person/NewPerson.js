@@ -17,7 +17,7 @@ function NewPerson() {
         const db = firebase.firestore();
 
         db.settings({
-            timestampsInSnapshots: true
+            //timestampsInSnapshots: true
         });
 
         db.collection('peoples').add({
@@ -25,8 +25,6 @@ function NewPerson() {
             wiki,
             ava,
         });
-
-        console.log('add')
     };
 
     return (

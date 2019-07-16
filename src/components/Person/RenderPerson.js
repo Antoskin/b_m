@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import {For} from 'react-control-statements';
 import Like from '../Like';
 import {LogContext} from '../../AuthentiController';
+import RemovePerson from './RemovePerson';
 import { Col, Card, Icon, Avatar } from 'antd';
 const { Meta } = Card;
 
@@ -10,9 +11,6 @@ function RenderPerson(props) {
     const user = useContext(LogContext);
     const {persons} = props;
 
-
-    //console.log('user', user.uid)
-    console.log('persons', persons)
     return (
         persons.map((i, id) => (
             <Col className="gutter-row" key={id} span={6}>
@@ -27,7 +25,8 @@ function RenderPerson(props) {
                     actions={[
                         <a target="_blank" href={i.wiki}>wiki</a>,
                         <Like/>,
-                        <Icon type="ellipsis"/>
+                        <Icon type="ellipsis"/>,
+                        <RemovePerson id={i.id} />
                     ]}
                 >
                     <Meta

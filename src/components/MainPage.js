@@ -6,7 +6,7 @@ import { Row } from 'antd';
 
 class MainPage extends React.Component {
     state = {
-        data: [],
+        notes: [],
     };
 
     componentDidMount() {
@@ -15,20 +15,23 @@ class MainPage extends React.Component {
         db.collection('peoples')
             .get()
             .then(querySnapshot => {
-                const data = querySnapshot.docs.map(doc => doc.data());
-                this.setState({ data });
+                const notes = querySnapshot.docs.map(doc => {
+                    const data = doc.data();
+                    data['id'] = doc.id;
+                    return data;
+                });
+                this.setState({ notes });
             });
     }
 
     render() {
-        const { data } = this.state;
-        //console.log('data', data)
+        const { notes } = this.state;
 
         return (
             <div className="gutter-example">
                 <Row gutter={16}>
-                    <If condition={data}>
-                        <RenderPerson persons={data}/>
+                    <If condition={notes}>
+                        <RenderPerson persons={notes}/>
                     </If>
                 </Row>
             </div>
